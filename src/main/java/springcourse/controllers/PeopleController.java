@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import springcourse.DAO.PersonDAO;
 import springcourse.models.Person;
 
-import java.nio.file.Path;
-
 @Controller
 @RequestMapping("/people")
 public class PeopleController {

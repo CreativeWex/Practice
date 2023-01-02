@@ -11,14 +11,12 @@ import java.util.List;
 public class PersonDAO {
     private List<Person> peopleList;
     private static int PEOPLE_COUNT;
-
     {
         peopleList = new ArrayList<>();
-        peopleList.add(new Person(++PEOPLE_COUNT, "Tom"));
-        peopleList.add(new Person(++PEOPLE_COUNT, "Nick"));
-        peopleList.add(new Person(++PEOPLE_COUNT, "Jack"));
-        peopleList.add(new Person(++PEOPLE_COUNT, "Sam"));
-        peopleList.add(new Person(++PEOPLE_COUNT, "Hugo"));
+        peopleList.add(new Person(++PEOPLE_COUNT, "Tom", 24, "tom@mail.ru"));
+        peopleList.add(new Person(++PEOPLE_COUNT, "Bob", 52, "bob@mail.ru"));
+        peopleList.add(new Person(++PEOPLE_COUNT, "Mike", 18, "mike@yahoo.com"));
+        peopleList.add(new Person(++PEOPLE_COUNT, "Katy", 34, "katy@gmail.com"));
     }
 
     public List<Person> getPeopleList() {
@@ -37,6 +35,8 @@ public class PersonDAO {
     public void update(int id, Person updatedPerson) {
         Person oldPerson = showById(id);
         oldPerson.setName(updatedPerson.getName());
+        oldPerson.setEmail(updatedPerson.getEmail());
+        oldPerson.setAge(updatedPerson.getAge());
     }
 
     public void delete(int id) {

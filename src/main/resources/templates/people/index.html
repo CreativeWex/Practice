@@ -6,11 +6,18 @@
 </head>
 <body>
 <h1> Все люди</h1>
+    <hr>
     <div th:each="person : ${peopleList}">
-        <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()}">user</a>
+        <a th:href="@{/people/{id}(id=${person.getId()})}"
+           th:text="${person.getName() + ', ' +  person.getAge()}">user</a>
     </div>
 <br>
-<br>
-    <a th:href="@{/people/new}">Создать нового пользователя</a>
+<hr>
+    <a th:href="@{/people/new}">
+        <button>Создать нового пользователя</button>
+    </a>
+
+
+
 </body>
 </html>

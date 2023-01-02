@@ -5,11 +5,23 @@
     <title>New person</title>
 </head>
 <body>
+<h1>Создание пользователя</h1>
+<hr>
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
-    <label for="name">Enter name: </label>
+    <label for="name">Введите имя: </label>
     <input type="text" th:field="*{name}" id="name"/>
     <br>
-    <input type="submit" value="Create!"/>
+    <label for="age">Введите возраст: </label>
+    <input type="number" th:field="*{age}" id="age"/>
+    <br>
+    <label for="email">Введите еmail: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br>
+    <input type="submit" value="Создать!"/>
 </form>
+<hr>
+<a th:href="@{/people}">
+    <button>Назад</button>
+</a>
 </body>
 </html>
