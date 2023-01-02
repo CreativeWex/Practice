@@ -1,8 +1,6 @@
 package springcourse.models;
 
 import jakarta.validation.constraints.*;
-import org.springframework.beans.factory.annotation.Value;
-
 public class Person {
     private int id;
 
