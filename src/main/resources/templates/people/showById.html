@@ -11,6 +11,12 @@
 
     <br>
 
+    <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+        <input type="submit" value="Удалить"/>
+    </form>
+
+    <br>
+
     <a th:href="@{/people}">Назад</a>
 </body>
 </html>
