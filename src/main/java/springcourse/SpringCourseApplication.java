@@ -1,6 +1,7 @@
 package springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -15,7 +16,6 @@ import javax.sql.DataSource;
 import java.util.Objects;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
-@PropertySource("classpath:database.properties")
 public class SpringCourseApplication {
     private final Environment environment;
 
@@ -33,10 +33,10 @@ public class SpringCourseApplication {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName((Objects.requireNonNull(environment.getProperty("driver"))));
-        dataSource.setUrl(environment.getProperty("url"));
-        dataSource.setUsername(environment.getProperty("user"));
-        dataSource.setPassword(environment.getProperty("password"));
+        dataSource.setDriverClassName((Objects.requireNonNull(environment.getProperty("DB.driver"))));
+        dataSource.setUrl(environment.getProperty("DB.url"));
+        dataSource.setUsername(environment.getProperty("DB.user"));
+        dataSource.setPassword(environment.getProperty("DB.password"));
 
         return  dataSource;
     }
